@@ -481,6 +481,8 @@ model User {
   calAiPhoneNumbers              CalAiPhoneNumber[]
   agents                         Agent[]
 
+  autoOptInFeatures Boolean @default(false)
+
   @@unique([email])
   @@unique([email, username])
   @@unique([username, organizationId])
@@ -611,6 +613,8 @@ model Team {
 
   teamBilling         TeamBilling?         @relation("TeamBilling")
   organizationBilling OrganizationBilling? @relation("OrganizationBilling")
+
+  autoOptInFeatures Boolean @default(false)
 
   @@unique([slug, parentId])
   @@index([parentId])
